@@ -86,6 +86,16 @@ Adapt the names to the project but keep the roles. Do not assume git, Overleaf o
 19. When running R: never save the workspace (`--no-save` or `--vanilla`) and turn off the graphics device when no figure is being produced, so that no `Rplots.pdf` is created.
 20. If more than one agent works in the project, each states what it is doing and in which folder. None moves files while another is running code.
 
+## Qualitative projects
+
+The structure and the rules on the root, versions, archive and trash apply unchanged. Adapt the data rules:
+
+- `data/raw/` holds recordings, transcripts, field notes, documents and images, exactly as collected. Still read-only.
+- `SOURCES.md` records, per item: what it is, who or where it came from, collection date, collected by, consent or access terms.
+- `data/intermediate/` holds anonymized transcripts, coded excerpts and exports from analysis software (NVivo, Atlas.ti, MAXQDA).
+- Rules 4, 7, 9 and 10 (single writer, script headers, workspace, interactive calls) apply only where scripts exist.
+- Never move, copy or rename files that identify participants without asking the user first.
+
 ## Mode A: new project
 
 1. Ask, in a single round: title and topic; co-authors; expected data sources; destination (journal, conference, report); manuscript format (Quarto, LaTeX or Word); where the folder will live.
