@@ -1,8 +1,8 @@
 # academic-project-structure
 
-An agent skill for Claude that keeps quantitative research projects organized: it scaffolds new projects, audits and reorganizes existing ones without breaking replication, and runs periodic checks.
+An agent skill for Claude and Codex that keeps academic research projects organized: it scaffolds new projects, audits and reorganizes existing ones without breaking replication, and runs periodic checks.
 
-It is written for empirical social science done in R with Quarto or LaTeX, in folders that may be synced to cloud storage. It does not assume git, Overleaf or Python.
+It is designed especially for quantitative research built on data and scripts, with tooling details written for R with Quarto or LaTeX. The folder structure, versioning, and archive rules also work for qualitative projects. It works in a plain folder, including one synced to cloud storage. Git, Overleaf, and Python are not required.
 
 ## The problem it addresses
 
