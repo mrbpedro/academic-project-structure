@@ -62,17 +62,29 @@ project/
 
 ## Install
 
-Copy the skill folder into your skills directory.
-
-For all your projects:
+Clone the repository, then copy the skill folder into your agent's skills directory.
 
 ```bash
 git clone https://github.com/mrbpedro/academic-project-structure.git
+```
+
+**Claude**, for all your projects:
+
+```bash
 mkdir -p ~/.claude/skills
 cp -r academic-project-structure/skills/academic-project-structure ~/.claude/skills/
 ```
 
 For a single project, copy it to `.claude/skills/` inside that project instead.
+
+**Codex**, for all your projects:
+
+```bash
+mkdir -p ~/.agents/skills
+cp -r academic-project-structure/skills/academic-project-structure ~/.agents/skills/
+```
+
+For a single repository, copy it to `.agents/skills/` inside that repository instead. Codex picks up new skills automatically; restart it if the skill does not appear.
 
 ## Use
 
