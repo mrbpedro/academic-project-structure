@@ -1,5 +1,7 @@
 # academic-project-structure
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24542793.svg)](https://doi.org/10.5281/zenodo.24542793)
+
 An agent skill for Claude and Codex that keeps academic research projects organized: it scaffolds new projects, audits and reorganizes existing ones without breaking replication, and runs periodic checks.
 
 It is designed especially for quantitative research built on data and scripts, with tooling details written for R with Quarto or LaTeX. The folder structure, versioning, and archive rules also work for qualitative projects. It works in a plain folder, including one synced to cloud storage. Git, Overleaf, and Python are not required.

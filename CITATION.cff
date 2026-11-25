@@ -12,6 +12,7 @@ authors:
   - family-names: Barbosa
     given-names: Pedro
     orcid: "https://orcid.org/0000-0002-7423-5000"
+doi: 10.5281/zenodo.24542793
 version: 1.0.0
 date-released: "2026-11-25"
 license: MIT
