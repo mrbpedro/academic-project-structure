@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this skill, please cite it using the metadata below."
+type: software
+title: "Academic Project Structure: An Agent Skill for Organizing Research Projects"
+abstract: >-
+  An agent skill for Claude and Codex that keeps academic research projects
+  organized. It scaffolds new projects with a clean folder structure, audits
+  and reorganizes existing ones without breaking replication, and runs
+  periodic checks. Designed especially for quantitative research in R with
+  Quarto or LaTeX; the structure also works for qualitative projects.
+authors:
+  - family-names: Barbosa
+    given-names: Pedro
+    # orcid: "https://orcid.org/0000-0000-0000-0000"
+    # affiliation: "Your institution"
+version: 1.0.0
+date-released: "2026-11-25"
+license: MIT
+repository-code: "https://github.com/mrbpedro/academic-project-structure"
+keywords:
+  - agent skills
+  - reproducible research
+  - research workflows
+  - project organization
+  - open science
+  - social sciences
