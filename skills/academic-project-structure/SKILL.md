@@ -78,7 +78,7 @@ Adapt the names to the project but keep the roles. Do not assume git, Overleaf o
 15. On submission, freeze the final datasets too: copy them to `archive/frozen_data_YYYY-MM-DD/` with a `CHECKSUMS.md` (file | md5 | size | date).
 
 ### Keeping and discarding
-16. `archive/` keeps what has historical value. `trash/` receives deletion candidates, with one row per item in `READ_BEFORE_DELETING.md` (name | origin | size | why it is safe to delete | where the surviving copy is, for duplicates).
+16. `archive/` keeps what has historical value. `trash/` receives deletion candidates, with one row per item in `READ_BEFORE_DELETING.md` (name | origin | size | why it is safe to delete | where the surviving copy is, for duplicates). A document version counts as a duplicate only if nothing is lost: before discarding one, compare comments, tracked changes and embedded images, not just the text.
 17. **The agent never deletes.** It only moves items to `trash/`. The user deletes.
 18. Every move is recorded in `archive/MOVE_LOG.md` (date | from | to | size | reason), and only after the file is confirmed at its destination.
 
@@ -120,7 +120,7 @@ Principle: understand first, then propose, and only then move. Each phase requir
    - helper functions that read files;
    - matching anchored on the opening quote, to avoid substring false positives.
 3. **Lineage.** Trace each final dataset back to the raw files. Flag: datasets with no originating script, files with more than one writer, inputs that live outside the project, scripts that depend on a hidden workspace, scripts that fail `parse()`.
-4. **"Read by a script" is not "useful to the project".** Check whether the variable each file feeds reaches the analysis, the text or the supplementary material. When in doubt, the file stays.
+4. **"Read by a script" is not "useful to the project".** Check whether the variable each file feeds reaches the analysis, the text or the supplementary material. When in doubt, the file stays. Content that is unique or cannot be rebuilt, and that nothing reads, is the user's decision item by item; it never goes to `trash/` by default.
 5. **Protect before moving.** Copy the final datasets to `archive/frozen_data_YYYY-MM-DD/` with md5 checksums. Verify those checksums at the end of every phase.
 6. **Move in phases, from safest to riskiest:**
    1. documents and old versions that no script reads;
@@ -129,9 +129,9 @@ Principle: understand first, then propose, and only then move. Each phase requir
    4. raw files that are only read, editing the read lines;
    5. intermediate files with a single writer, editing reads and writes in the same pass and using the same path in both;
    6. last, and only outside delivery periods, datasets with several writers and anything the current submission reads.
-7. **In every phase:** an exact file-by-file list for approval; `mv -n`, one item at a time; md5 verification; an entry in the log.
-8. **When editing scripts:** back up the scripts first, with md5; get the diff approved before applying it; validate (the new path resolves to the same md5, `identical()` between the old and new read, no old name left, `parse()` compared against the backup, only the planned lines changed); write an undo script guarded by md5.
-9. **Never run scripts that overwrite datasets in order to validate.** Validation is static and by equivalent reads.
+7. **In every phase:** first list the folder again, compare it with the last known state and resolve any difference (files the user deleted or added, another agent or process at work) before moving anything; then an exact file-by-file list for approval; `mv -n`, one item at a time; md5 verification; an entry in the log.
+8. **When editing scripts:** back up the scripts first, with md5; get the diff approved before applying it; validate (the new path resolves to the same md5, `identical()` between the old and new read, no old name left, `parse()` compared against the backup, only the planned lines changed); write an undo script guarded by md5. When successive migrations edit the same scripts, the undo scripts only work in reverse order: state that order in the header of each one.
+9. **Never run scripts that overwrite datasets in order to validate.** Validation is static and by equivalent reads. Before editing a script that produces outputs, copy those outputs with md5 and record that the first real run must be compared against the copy.
 10. **Leave active material alone.** Folders of a submission in progress and files modified in the last 24 hours are touched only after asking the user.
 11. At the end, write `DATA_LINEAGE.md` and `DATA_INDEX.md` in the root, update AGENTS.md and CLAUDE.md, and leave a written plan for whatever was postponed.
 
